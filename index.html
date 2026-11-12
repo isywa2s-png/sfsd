@@ -1,0 +1,2522 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#071C38">
+    <meta name="description" content="FIFA World Football - Histórico oficial de premiações, rankings, clubes, seleções e campeões.">
+
+    <title>FIFA | World Football</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Assets/favicon.png">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsivo.css">
+    <link rel="stylesheet" href="CSS/animacoes.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         CARREGAMENTO
+    =========================================== -->
+
+    <div id="loading-screen" class="loading-screen">
+
+        <div class="loading-content">
+
+            <img src="Assets/fifa.png" alt="FIFA" class="loading-logo">
+
+            <div class="loading-spinner"></div>
+
+            <span>CARREGANDO FIFA WORLD FOOTBALL...</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         ESTRUTURA PRINCIPAL
+    =========================================== -->
+
+    <div class="app-container">
+
+
+        <!-- ======================================
+             MENU LATERAL
+        ======================================= -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+
+                <div class="brand-container">
+
+                    <img src="Assets/fifa.png" alt="FIFA Logo" class="brand-logo">
+
+                    <div class="brand-text">
+
+                        <h1>FIFA</h1>
+
+                        <span>WORLD FOOTBALL</span>
+
+                    </div>
+
+                </div>
+
+                <button class="sidebar-close" id="sidebar-close" aria-label="Fechar menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <!-- Navegação -->
+
+            <div class="sidebar-content">
+
+                <div class="menu-section">
+
+                    <span class="menu-label">PRINCIPAL</span>
+
+                    <button class="menu-item active" data-page="inicio">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Início</span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="menu-section">
+
+                    <span class="menu-label">COMPETIÇÕES</span>
+
+                    <button class="menu-item" data-page="premiacoes">
+
+                        <i class="fa-solid fa-trophy"></i>
+
+                        <span>Premiações</span>
+
+                        <i class="fa-solid fa-chevron-right menu-arrow"></i>
+
+                    </button>
+
+                    <button class="menu-item" data-page="ranking">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <span>Ranking</span>
+
+                        <i class="fa-solid fa-chevron-right menu-arrow"></i>
+
+                    </button>
+
+                    <button class="menu-item" data-page="campeoes">
+
+                        <i class="fa-solid fa-crown"></i>
+
+                        <span>Campeões</span>
+
+                        <i class="fa-solid fa-chevron-right menu-arrow"></i>
+
+                    </button>
+
+                </div>
+
+
+                <div class="menu-section admin-menu-section" id="admin-menu-section">
+
+                    <span class="menu-label">ADMINISTRAÇÃO</span>
+
+                    <button class="menu-item" data-page="administracao">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <span>Painel administrativo</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Rodapé do menu -->
+
+            <div class="sidebar-footer">
+
+                <div class="sidebar-status">
+
+                    <span class="status-indicator"></span>
+
+                    <span>Sistema FIFA</span>
+
+                    <span class="status-online">ONLINE</span>
+
+                </div>
+
+                <div class="sidebar-version">
+
+                    FIFA WORLD FOOTBALL
+
+                    <span>Official Records System</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Fundo do menu mobile -->
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+
+        <!-- ======================================
+             CONTEÚDO PRINCIPAL
+        ======================================= -->
+
+        <main class="main-content">
+
+
+            <!-- ==================================
+                 CABEÇALHO
+            =================================== -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button class="mobile-menu-button" id="mobile-menu-button" aria-label="Abrir menu">
+
+                        <i class="fa-solid fa-bars"></i>
+
+                    </button>
+
+                    <div class="breadcrumb">
+
+                        <span>FIFA</span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                        <strong id="breadcrumb-current">Início</strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <div class="system-indicator">
+
+                        <span class="status-indicator"></span>
+
+                        <span>REGISTROS ONLINE</span>
+
+                    </div>
+
+                    <button class="admin-login-button" id="open-login">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                        <span>Área administrativa</span>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- ==================================
+                 PÁGINAS
+            =================================== -->
+
+            <div class="page-container">
+
+
+                <!-- ==================================
+                     INÍCIO
+                =================================== -->
+
+                <section class="page active" id="page-inicio">
+
+
+                    <!-- Banner principal -->
+
+                    <div class="hero-banner">
+
+                        <div class="hero-content">
+
+                            <span class="hero-tag">
+
+                                <i class="fa-solid fa-globe"></i>
+
+                                WORLD FOOTBALL RECORDS
+
+                            </span>
+
+                            <h1>
+
+                                A HISTÓRIA DO
+
+                                <span>FUTEBOL.</span>
+
+                            </h1>
+
+                            <p>
+
+                                Premiações, conquistas e rankings.
+                                Todos os registros do futebol em um só lugar.
+
+                            </p>
+
+                            <button class="hero-button" data-page="campeoes">
+
+                                EXPLORAR HISTÓRICO
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+                        </div>
+
+                        <div class="hero-image">
+
+                            <img src="Assets/fifa.png" alt="FIFA World Football">
+
+                        </div>
+
+                        <div class="hero-decoration"></div>
+
+                    </div>
+
+
+                    <!-- Indicadores -->
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <span class="section-overline">VISÃO GERAL</span>
+
+                            <h2>FIFA em números</h2>
+
+                            <p>Um panorama de todos os registros históricos.</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="statistics-grid">
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon blue">
+
+                                <i class="fa-solid fa-trophy"></i>
+
+                            </div>
+
+                            <div class="stat-info">
+
+                                <span>Premiações registradas</span>
+
+                                <strong id="stat-premiacoes">0</strong>
+
+                                <small>Registros históricos</small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon gold">
+
+                                <i class="fa-solid fa-crown"></i>
+
+                            </div>
+
+                            <div class="stat-info">
+
+                                <span>Campeões registrados</span>
+
+                                <strong id="stat-campeoes">0</strong>
+
+                                <small>Conquistas cadastradas</small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon purple">
+
+                                <i class="fa-solid fa-shield"></i>
+
+                            </div>
+
+                            <div class="stat-info">
+
+                                <span>Clubes no ranking</span>
+
+                                <strong id="stat-clubes">0</strong>
+
+                                <small>Clubes classificados</small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon green">
+
+                                <i class="fa-solid fa-earth-americas"></i>
+
+                            </div>
+
+                            <div class="stat-info">
+
+                                <span>Seleções no ranking</span>
+
+                                <strong id="stat-selecoes">0</strong>
+
+                                <small>Seleções classificadas</small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Últimos campeões -->
+
+                    <div class="section-heading section-heading-spaced">
+
+                        <div>
+
+                            <span class="section-overline">HISTÓRICO RECENTE</span>
+
+                            <h2>Últimos campeões</h2>
+
+                            <p>Confira os registros mais recentes.</p>
+
+                        </div>
+
+                        <button class="text-button" data-page="campeoes">
+
+                            Ver todos
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="table-card">
+
+                        <div class="table-header">
+
+                            <div>
+
+                                <h3>Últimas conquistas</h3>
+
+                                <span>Campeões das competições cadastradas.</span>
+
+                            </div>
+
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+
+                        </div>
+
+                        <div class="table-responsive">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>REGIÃO</th>
+
+                                        <th>COMPETIÇÃO</th>
+
+                                        <th>CAMPEÃO</th>
+
+                                        <th>TEMPORADA</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="home-recent-champions">
+
+                                    <tr>
+
+                                        <td colspan="4" class="empty-state">
+
+                                            <i class="fa-solid fa-folder-open"></i>
+
+                                            Nenhum campeão registrado ainda.
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Premiações em destaque -->
+
+                    <div class="section-heading section-heading-spaced">
+
+                        <div>
+
+                            <span class="section-overline">RECONHECIMENTO</span>
+
+                            <h2>Premiações oficiais</h2>
+
+                            <p>Conheça as principais categorias individuais.</p>
+
+                        </div>
+
+                        <button class="text-button" data-page="premiacoes">
+
+                            Ver premiações
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="awards-preview-grid">
+
+                        <div class="award-preview-card">
+
+                            <div class="award-preview-icon">🏆</div>
+
+                            <span>BOLA DE OURO</span>
+
+                            <strong>Melhor jogador</strong>
+
+                        </div>
+
+                        <div class="award-preview-card">
+
+                            <div class="award-preview-icon">🌟</div>
+
+                            <span>THE BEST</span>
+
+                            <strong>Melhor do mundo</strong>
+
+                        </div>
+
+                        <div class="award-preview-card">
+
+                            <div class="award-preview-icon">👟</div>
+
+                            <span>CHUTEIRA DE OURO</span>
+
+                            <strong>Maior artilheiro</strong>
+
+                        </div>
+
+                        <div class="award-preview-card">
+
+                            <div class="award-preview-icon">🧤</div>
+
+                            <span>LUVA DE OURO</span>
+
+                            <strong>Melhor goleiro</strong>
+
+                        </div>
+
+                        <div class="award-preview-card">
+
+                            <div class="award-preview-icon">👑</div>
+
+                            <span>REI DA AMÉRICA</span>
+
+                            <strong>Melhor da América</strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Ranking em destaque -->
+
+                    <div class="section-heading section-heading-spaced">
+
+                        <div>
+
+                            <span class="section-overline">CLASSIFICAÇÃO</span>
+
+                            <h2>Rankings</h2>
+
+                            <p>Os principais clubes e seleções.</p>
+
+                        </div>
+
+                        <button class="text-button" data-page="ranking">
+
+                            Ver rankings
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="ranking-preview-grid">
+
+                        <div class="ranking-preview-card">
+
+                            <div class="ranking-preview-header">
+
+                                <i class="fa-solid fa-shield"></i>
+
+                                <div>
+
+                                    <h3>Ranking de clubes</h3>
+
+                                    <span>TOP 10 MUNDIAL</span>
+
+                                </div>
+
+                            </div>
+
+                            <div id="home-club-ranking" class="ranking-preview-list">
+
+                                <div class="empty-state">
+
+                                    Nenhum clube registrado.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ranking-preview-card">
+
+                            <div class="ranking-preview-header">
+
+                                <i class="fa-solid fa-earth-americas"></i>
+
+                                <div>
+
+                                    <h3>Ranking de seleções</h3>
+
+                                    <span>TOP 10 MUNDIAL</span>
+
+                                </div>
+
+                            </div>
+
+                            <div id="home-national-ranking" class="ranking-preview-list">
+
+                                <div class="empty-state">
+
+                                    Nenhuma seleção registrada.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ==================================
+                     PREMIAÇÕES
+                =================================== -->
+
+                <section class="page" id="page-premiacoes">
+
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="section-overline">RECONHECIMENTO INDIVIDUAL</span>
+
+                            <h1>Premiações</h1>
+
+                            <p>
+
+                                Os maiores destaques individuais de cada temporada.
+                                Consulte os vencedores e o histórico de conquistas.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Categorias -->
+
+                    <div class="award-tabs" id="award-tabs">
+
+                        <button class="award-tab active" data-award="bola-ouro">
+
+                            <span>🏆</span>
+
+                            <span>Bola de Ouro</span>
+
+                        </button>
+
+                        <button class="award-tab" data-award="the-best">
+
+                            <span>🌟</span>
+
+                            <span>The Best</span>
+
+                        </button>
+
+                        <button class="award-tab" data-award="chuteira-ouro">
+
+                            <span>👟</span>
+
+                            <span>Chuteira de Ouro</span>
+
+                        </button>
+
+                        <button class="award-tab" data-award="luva-ouro">
+
+                            <span>🧤</span>
+
+                            <span>Luva de Ouro</span>
+
+                        </button>
+
+                        <button class="award-tab" data-award="rei-america">
+
+                            <span>👑</span>
+
+                            <span>Rei da América</span>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Conteúdo da premiação -->
+
+                    <div class="award-content" id="award-content">
+
+
+                        <!-- Campeão atual -->
+
+                        <div class="current-award-card">
+
+                            <div class="current-award-background"></div>
+
+                            <div class="current-award-info">
+
+                                <span class="current-award-label">
+
+                                    <i class="fa-solid fa-crown"></i>
+
+                                    ATUAL VENCEDOR
+
+                                </span>
+
+                                <h2 id="current-award-name">Bola de Ouro</h2>
+
+                                <strong id="current-award-player">
+
+                                    Aguardando vencedor
+
+                                </strong>
+
+                                <span id="current-award-season">Temporada não registrada</span>
+
+                            </div>
+
+                            <div class="current-award-trophy">
+
+                                🏆
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Top 5 -->
+
+                        <div class="section-heading section-heading-spaced">
+
+                            <div>
+
+                                <span class="section-overline">CLASSIFICAÇÃO DA TEMPORADA</span>
+
+                                <h2>Top 5 da premiação</h2>
+
+                                <p>Confira os cinco melhores colocados.</p>
+
+                            </div>
+
+                            <div class="season-filter-container">
+
+                                <label for="award-season-filter">Temporada</label>
+
+                                <select id="award-season-filter">
+
+                                    <option value="all">Mais recente</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="top-five-card">
+
+                            <div id="award-top-five">
+
+                                <div class="empty-state">
+
+                                    <i class="fa-solid fa-trophy"></i>
+
+                                    Nenhuma premiação cadastrada nesta categoria.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Histórico -->
+
+                        <div class="section-heading section-heading-spaced">
+
+                            <div>
+
+                                <span class="section-overline">REGISTROS ANTERIORES</span>
+
+                                <h2>Histórico da premiação</h2>
+
+                                <p>Todos os vencedores registrados.</p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="table-card">
+
+                            <div class="table-responsive">
+
+                                <table>
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>TEMPORADA</th>
+
+                                            <th>1º COLOCADO</th>
+
+                                            <th>2º COLOCADO</th>
+
+                                            <th>3º COLOCADO</th>
+
+                                            <th>4º COLOCADO</th>
+
+                                            <th>5º COLOCADO</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="award-history">
+
+                                        <tr>
+
+                                            <td colspan="6" class="empty-state">
+
+                                                Nenhum histórico disponível.
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Ranking histórico -->
+
+                        <div class="section-heading section-heading-spaced">
+
+                            <div>
+
+                                <span class="section-overline">HISTÓRIA E LEGADO</span>
+
+                                <h2>Maiores vencedores</h2>
+
+                                <p>Jogadores com mais conquistas nesta premiação.</p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="table-card">
+
+                            <div class="table-responsive">
+
+                                <table>
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>POSIÇÃO</th>
+
+                                            <th>JOGADOR</th>
+
+                                            <th>TÍTULOS</th>
+
+                                            <th>TEMPORADAS</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="award-winners-ranking">
+
+                                        <tr>
+
+                                            <td colspan="4" class="empty-state">
+
+                                                Nenhum vencedor registrado.
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ==================================
+                     RANKING
+                =================================== -->
+
+                <section class="page" id="page-ranking">
+
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="section-overline">CLASSIFICAÇÃO MUNDIAL</span>
+
+                            <h1>Rankings</h1>
+
+                            <p>
+
+                                Acompanhe os clubes e seleções de maior pontuação
+                                registrados na FIFA.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Abas -->
+
+                    <div class="ranking-tabs">
+
+                        <button class="ranking-tab active" data-ranking="clubes">
+
+                            <i class="fa-solid fa-shield"></i>
+
+                            Clubes
+
+                        </button>
+
+                        <button class="ranking-tab" data-ranking="selecoes">
+
+                            <i class="fa-solid fa-earth-americas"></i>
+
+                            Seleções
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Ranking de clubes -->
+
+                    <div class="ranking-content active" id="ranking-clubes">
+
+                        <div class="ranking-section-header">
+
+                            <div>
+
+                                <span class="section-overline">CLASSIFICAÇÃO DE CLUBES</span>
+
+                                <h2>Top 10 clubes</h2>
+
+                                <p>Clubes com maior pontuação acumulada.</p>
+
+                            </div>
+
+                            <span class="ranking-limit">
+
+                                <i class="fa-solid fa-medal"></i>
+
+                                TOP 10
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="ranking-table-card">
+
+                            <div class="ranking-table-header">
+
+                                <span>CLASSIFICAÇÃO OFICIAL</span>
+
+                                <span>PONTUAÇÃO</span>
+
+                            </div>
+
+                            <div id="club-ranking-list">
+
+                                <div class="empty-state">
+
+                                    <i class="fa-solid fa-shield"></i>
+
+                                    Nenhum clube registrado no ranking.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Ranking de seleções -->
+
+                    <div class="ranking-content" id="ranking-selecoes">
+
+                        <div class="ranking-section-header">
+
+                            <div>
+
+                                <span class="section-overline">CLASSIFICAÇÃO DE SELEÇÕES</span>
+
+                                <h2>Top 10 seleções</h2>
+
+                                <p>Seleções com maior pontuação acumulada.</p>
+
+                            </div>
+
+                            <span class="ranking-limit">
+
+                                <i class="fa-solid fa-medal"></i>
+
+                                TOP 10
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="ranking-table-card">
+
+                            <div class="ranking-table-header">
+
+                                <span>CLASSIFICAÇÃO OFICIAL</span>
+
+                                <span>PONTUAÇÃO</span>
+
+                            </div>
+
+                            <div id="national-ranking-list">
+
+                                <div class="empty-state">
+
+                                    <i class="fa-solid fa-earth-americas"></i>
+
+                                    Nenhuma seleção registrada no ranking.
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ==================================
+                     CAMPEÕES
+                =================================== -->
+
+                <section class="page" id="page-campeoes">
+
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="section-overline">MEMÓRIA DO FUTEBOL</span>
+
+                            <h1>Histórico de campeões</h1>
+
+                            <p>
+
+                                Consulte os títulos conquistados por clubes e seleções
+                                em diferentes regiões e competições.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Filtros -->
+
+                    <div class="filters-card">
+
+                        <div class="filters-heading">
+
+                            <div>
+
+                                <i class="fa-solid fa-filter"></i>
+
+                                <strong>Filtrar histórico</strong>
+
+                            </div>
+
+                            <button class="clear-filters" id="clear-champion-filters">
+
+                                <i class="fa-solid fa-rotate-left"></i>
+
+                                Limpar filtros
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="filters-grid">
+
+                            <div class="filter-field">
+
+                                <label for="champion-country-filter">
+
+                                    PAÍS / REGIÃO
+
+                                </label>
+
+                                <select id="champion-country-filter">
+
+                                    <option value="all">Todas as regiões</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="filter-field">
+
+                                <label for="champion-competition-filter">
+
+                                    COMPETIÇÃO
+
+                                </label>
+
+                                <select id="champion-competition-filter">
+
+                                    <option value="all">Todas as competições</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="filter-field">
+
+                                <label for="champion-search">
+
+                                    BUSCAR CAMPEÃO
+
+                                </label>
+
+                                <div class="search-input-wrapper">
+
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                                    <input
+
+                                        type="text"
+
+                                        id="champion-search"
+
+                                        placeholder="Digite o nome do campeão..."
+
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Resumo -->
+
+                    <div class="champions-summary">
+
+                        <div class="champions-summary-card">
+
+                            <div class="summary-icon">
+
+                                <i class="fa-solid fa-trophy"></i>
+
+                            </div>
+
+                            <div>
+
+                                <span>Títulos encontrados</span>
+
+                                <strong id="champions-total-titles">0</strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="champions-summary-card">
+
+                            <div class="summary-icon">
+
+                                <i class="fa-solid fa-users"></i>
+
+                            </div>
+
+                            <div>
+
+                                <span>Campeões diferentes</span>
+
+                                <strong id="champions-total-winners">0</strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="champions-summary-card">
+
+                            <div class="summary-icon">
+
+                                <i class="fa-solid fa-flag"></i>
+
+                            </div>
+
+                            <div>
+
+                                <span>Competições encontradas</span>
+
+                                <strong id="champions-total-competitions">0</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Ranking histórico -->
+
+                    <div class="section-heading section-heading-spaced">
+
+                        <div>
+
+                            <span class="section-overline">MAIORES CAMPEÕES</span>
+
+                            <h2>Ranking de conquistas</h2>
+
+                            <p>Clubes e seleções organizados por número de títulos.</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="champions-ranking-card">
+
+                        <div class="table-responsive">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>POSIÇÃO</th>
+
+                                        <th>CAMPEÃO</th>
+
+                                        <th>TÍTULOS</th>
+
+                                        <th>TEMPORADAS</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="champions-all-time-ranking">
+
+                                    <tr>
+
+                                        <td colspan="4" class="empty-state">
+
+                                            Nenhum título encontrado.
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Competições -->
+
+                    <div class="section-heading section-heading-spaced">
+
+                        <div>
+
+                            <span class="section-overline">COMPETIÇÕES REGISTRADAS</span>
+
+                            <h2>Histórico por competição</h2>
+
+                            <p>Consulte os maiores vencedores de cada campeonato.</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="champions-competition-groups" class="champions-competition-groups">
+
+                        <div class="empty-state">
+
+                            <i class="fa-solid fa-folder-open"></i>
+
+                            Nenhuma competição registrada ainda.
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ==================================
+                     ADMINISTRAÇÃO
+                =================================== -->
+
+                <section class="page" id="page-administracao">
+
+
+                    <div class="page-heading">
+
+                        <div>
+
+                            <span class="section-overline">CONTROLE DO SISTEMA</span>
+
+                            <h1>Painel administrativo</h1>
+
+                            <p>
+
+                                Gerencie os registros, premiações, rankings
+                                e histórico de campeões da FIFA.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Informações do administrador -->
+
+                    <div class="admin-welcome-card">
+
+                        <div class="admin-avatar">
+
+                            <i class="fa-solid fa-user-shield"></i>
+
+                        </div>
+
+                        <div class="admin-welcome-info">
+
+                            <span>ADMINISTRADOR AUTENTICADO</span>
+
+                            <h2 id="admin-name">Lemos</h2>
+
+                            <p>Controle completo dos registros da FIFA.</p>
+
+                        </div>
+
+                        <button class="admin-logout-button" id="admin-logout">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            Sair
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Estatísticas administrativas -->
+
+                    <div class="admin-statistics-grid">
+
+                        <div class="admin-stat-card">
+
+                            <i class="fa-solid fa-trophy"></i>
+
+                            <div>
+
+                                <span>Premiações</span>
+
+                                <strong id="admin-stat-awards">0</strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="admin-stat-card">
+
+                            <i class="fa-solid fa-crown"></i>
+
+                            <div>
+
+                                <span>Campeões</span>
+
+                                <strong id="admin-stat-champions">0</strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="admin-stat-card">
+
+                            <i class="fa-solid fa-shield"></i>
+
+                            <div>
+
+                                <span>Clubes</span>
+
+                                <strong id="admin-stat-clubs">0</strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="admin-stat-card">
+
+                            <i class="fa-solid fa-earth-americas"></i>
+
+                            <div>
+
+                                <span>Seleções</span>
+
+                                <strong id="admin-stat-nations">0</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Opções de gerenciamento -->
+
+                    <div class="section-heading section-heading-spaced">
+
+                        <div>
+
+                            <span class="section-overline">GERENCIAMENTO</span>
+
+                            <h2>Gerenciar registros</h2>
+
+                            <p>Escolha o conteúdo que deseja administrar.</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admin-actions-grid">
+
+
+                        <button class="admin-action-card" data-admin-tab="premiacoes">
+
+                            <div class="admin-action-icon blue">
+
+                                <i class="fa-solid fa-trophy"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>Premiações</strong>
+
+                                <span>Adicionar ou remover vencedores e top 5.</span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+                        <button class="admin-action-card" data-admin-tab="ranking-clubes">
+
+                            <div class="admin-action-icon gold">
+
+                                <i class="fa-solid fa-shield"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>Ranking de clubes</strong>
+
+                                <span>Gerenciar clubes e pontuações.</span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+                        <button class="admin-action-card" data-admin-tab="ranking-selecoes">
+
+                            <div class="admin-action-icon purple">
+
+                                <i class="fa-solid fa-earth-americas"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>Ranking de seleções</strong>
+
+                                <span>Gerenciar seleções e pontuações.</span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+                        <button class="admin-action-card" data-admin-tab="campeoes">
+
+                            <div class="admin-action-icon green">
+
+                                <i class="fa-solid fa-crown"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>Histórico de campeões</strong>
+
+                                <span>Registrar títulos e competições.</span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- Gerenciamento de premiações -->
+
+                    <div class="admin-management-panel" id="admin-panel-premiacoes">
+
+                        <div class="admin-panel-heading">
+
+                            <div>
+
+                                <span class="section-overline">GERENCIAMENTO</span>
+
+                                <h2>Premiações</h2>
+
+                                <p>Cadastre os cinco colocados de cada premiação.</p>
+
+                            </div>
+
+                            <button class="admin-back-button" data-admin-back>
+
+                                <i class="fa-solid fa-arrow-left"></i>
+
+                                Voltar
+
+                            </button>
+
+                        </div>
+
+
+                        <form id="award-form" class="admin-form">
+
+                            <div class="form-grid">
+
+                                <div class="form-field">
+
+                                    <label for="award-type">PREMIAÇÃO</label>
+
+                                    <select id="award-type" required>
+
+                                        <option value="">Selecione uma premiação</option>
+
+                                        <option value="bola-ouro">Bola de Ouro</option>
+
+                                        <option value="the-best">The Best</option>
+
+                                        <option value="chuteira-ouro">Chuteira de Ouro</option>
+
+                                        <option value="luva-ouro">Luva de Ouro</option>
+
+                                        <option value="rei-america">Rei da América</option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <div class="form-field">
+
+                                    <label for="award-season">TEMPORADA</label>
+
+                                    <input
+
+                                        type="text"
+
+                                        id="award-season"
+
+                                        placeholder="Ex: S1"
+
+                                        required
+
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-divider"></div>
+
+
+                            <div class="form-section-title">
+
+                                <i class="fa-solid fa-medal"></i>
+
+                                <div>
+
+                                    <strong>Classificação oficial</strong>
+
+                                    <span>Informe os cinco jogadores classificados.</span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="award-position-fields">
+
+                                <div class="form-field">
+
+                                    <label for="award-first">🥇 1º COLOCADO</label>
+
+                                    <input type="text" id="award-first" placeholder="Nome do jogador" required>
+
+                                </div>
+
+                                <div class="form-field">
+
+                                    <label for="award-second">🥈 2º COLOCADO</label>
+
+                                    <input type="text" id="award-second" placeholder="Nome do jogador" required>
+
+                                </div>
+
+                                <div class="form-field">
+
+                                    <label for="award-third">🥉 3º COLOCADO</label>
+
+                                    <input type="text" id="award-third" placeholder="Nome do jogador" required>
+
+                                </div>
+
+                                <div class="form-field">
+
+                                    <label for="award-fourth">4º COLOCADO</label>
+
+                                    <input type="text" id="award-fourth" placeholder="Nome do jogador" required>
+
+                                </div>
+
+                                <div class="form-field">
+
+                                    <label for="award-fifth">5º COLOCADO</label>
+
+                                    <input type="text" id="award-fifth" placeholder="Nome do jogador" required>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button type="reset" class="secondary-button">
+
+                                    Limpar
+
+                                </button>
+
+                                <button type="submit" class="primary-button">
+
+                                    <i class="fa-solid fa-floppy-disk"></i>
+
+                                    Salvar premiação
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <div class="admin-existing-records">
+
+                            <div class="admin-panel-heading">
+
+                                <div>
+
+                                    <h3>Premiações cadastradas</h3>
+
+                                    <span>Consulte ou remova registros existentes.</span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="table-responsive">
+
+                                <table>
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>PREMIAÇÃO</th>
+
+                                            <th>TEMPORADA</th>
+
+                                            <th>CAMPEÃO</th>
+
+                                            <th>AÇÃO</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="admin-award-records">
+
+                                        <tr>
+
+                                            <td colspan="4" class="empty-state">
+
+                                                Nenhuma premiação cadastrada.
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Gerenciamento do ranking de clubes -->
+
+                    <div class="admin-management-panel" id="admin-panel-ranking-clubes">
+
+                        <div class="admin-panel-heading">
+
+                            <div>
+
+                                <span class="section-overline">GERENCIAMENTO</span>
+
+                                <h2>Ranking de clubes</h2>
+
+                                <p>Cadastre os clubes e suas pontuações.</p>
+
+                            </div>
+
+                            <button class="admin-back-button" data-admin-back>
+
+                                <i class="fa-solid fa-arrow-left"></i>
+
+                                Voltar
+
+                            </button>
+
+                        </div>
+
+
+                        <form id="club-form" class="admin-form">
+
+                            <div class="form-grid">
+
+                                <div class="form-field">
+
+                                    <label for="club-name">NOME DO CLUBE</label>
+
+                                    <input type="text" id="club-name" placeholder="Ex: Flamengo" required>
+
+                                </div>
+
+
+                                <div class="form-field">
+
+                                    <label for="club-points">PONTUAÇÃO</label>
+
+                                    <input type="number" id="club-points" placeholder="Ex: 150" min="0" step="any" required>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button type="reset" class="secondary-button">
+
+                                    Limpar
+
+                                </button>
+
+                                <button type="submit" class="primary-button">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                    Adicionar clube
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <div class="admin-existing-records">
+
+                            <h3>Clubes cadastrados</h3>
+
+                            <div class="table-responsive">
+
+                                <table>
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>CLUBE</th>
+
+                                            <th>PONTUAÇÃO</th>
+
+                                            <th>AÇÃO</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="admin-club-records">
+
+                                        <tr>
+
+                                            <td colspan="3" class="empty-state">
+
+                                                Nenhum clube cadastrado.
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Gerenciamento do ranking de seleções -->
+
+                    <div class="admin-management-panel" id="admin-panel-ranking-selecoes">
+
+                        <div class="admin-panel-heading">
+
+                            <div>
+
+                                <span class="section-overline">GERENCIAMENTO</span>
+
+                                <h2>Ranking de seleções</h2>
+
+                                <p>Cadastre as seleções e suas pontuações.</p>
+
+                            </div>
+
+                            <button class="admin-back-button" data-admin-back>
+
+                                <i class="fa-solid fa-arrow-left"></i>
+
+                                Voltar
+
+                            </button>
+
+                        </div>
+
+
+                        <form id="national-form" class="admin-form">
+
+                            <div class="form-grid">
+
+                                <div class="form-field">
+
+                                    <label for="national-name">NOME DA SELEÇÃO</label>
+
+                                    <input type="text" id="national-name" placeholder="Ex: Brasil" required>
+
+                                </div>
+
+
+                                <div class="form-field">
+
+                                    <label for="national-points">PONTUAÇÃO</label>
+
+                                    <input type="number" id="national-points" placeholder="Ex: 150" min="0" step="any" required>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button type="reset" class="secondary-button">
+
+                                    Limpar
+
+                                </button>
+
+                                <button type="submit" class="primary-button">
+
+                                    <i class="fa-solid fa-plus"></i>
+
+                                    Adicionar seleção
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <div class="admin-existing-records">
+
+                            <h3>Seleções cadastradas</h3>
+
+                            <div class="table-responsive">
+
+                                <table>
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>SELEÇÃO</th>
+
+                                            <th>PONTUAÇÃO</th>
+
+                                            <th>AÇÃO</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="admin-national-records">
+
+                                        <tr>
+
+                                            <td colspan="3" class="empty-state">
+
+                                                Nenhuma seleção cadastrada.
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Gerenciamento de campeões -->
+
+                    <div class="admin-management-panel" id="admin-panel-campeoes">
+
+                        <div class="admin-panel-heading">
+
+                            <div>
+
+                                <span class="section-overline">GERENCIAMENTO</span>
+
+                                <h2>Histórico de campeões</h2>
+
+                                <p>Registre os vencedores das competições.</p>
+
+                            </div>
+
+                            <button class="admin-back-button" data-admin-back>
+
+                                <i class="fa-solid fa-arrow-left"></i>
+
+                                Voltar
+
+                            </button>
+
+                        </div>
+
+
+                        <form id="champion-form" class="admin-form">
+
+                            <div class="form-grid">
+
+                                <div class="form-field">
+
+                                    <label for="champion-country">PAÍS / REGIÃO</label>
+
+                                    <input
+
+                                        type="text"
+
+                                        id="champion-country"
+
+                                        placeholder="Ex: Brasil, Espanha, Europa..."
+
+                                        required
+
+                                    >
+
+                                </div>
+
+
+                                <div class="form-field">
+
+                                    <label for="champion-competition">COMPETIÇÃO</label>
+
+                                    <input
+
+                                        type="text"
+
+                                        id="champion-competition"
+
+                                        placeholder="Ex: Brasileirão, La Liga..."
+
+                                        required
+
+                                    >
+
+                                </div>
+
+
+                                <div class="form-field">
+
+                                    <label for="champion-winner">CAMPEÃO</label>
+
+                                    <input
+
+                                        type="text"
+
+                                        id="champion-winner"
+
+                                        placeholder="Nome do clube ou seleção"
+
+                                        required
+
+                                    >
+
+                                </div>
+
+
+                                <div class="form-field">
+
+                                    <label for="champion-season">TEMPORADA</label>
+
+                                    <input
+
+                                        type="text"
+
+                                        id="champion-season"
+
+                                        placeholder="Ex: S1"
+
+                                        required
+
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button type="reset" class="secondary-button">
+
+                                    Limpar
+
+                                </button>
+
+                                <button type="submit" class="primary-button">
+
+                                    <i class="fa-solid fa-floppy-disk"></i>
+
+                                    Registrar campeão
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <div class="admin-existing-records">
+
+                            <h3>Campeões cadastrados</h3>
+
+                            <div class="table-responsive">
+
+                                <table>
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>REGIÃO</th>
+
+                                            <th>COMPETIÇÃO</th>
+
+                                            <th>CAMPEÃO</th>
+
+                                            <th>TEMPORADA</th>
+
+                                            <th>AÇÃO</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody id="admin-champion-records">
+
+                                        <tr>
+
+                                            <td colspan="5" class="empty-state">
+
+                                                Nenhum campeão cadastrado.
+
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+
+
+            <!-- ==================================
+                 RODAPÉ
+            =================================== -->
+
+            <footer class="main-footer">
+
+                <div class="footer-brand">
+
+                    <img src="Assets/fifa.png" alt="FIFA">
+
+                    <div>
+
+                        <strong>FIFA WORLD FOOTBALL</strong>
+
+                        <span>OFFICIAL FOOTBALL RECORDS</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-right">
+
+                    <span>Todos os direitos reservados.</span>
+
+                    <span>Desenvolvido por <strong>Lemos</strong>.</span>
+
+                </div>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         MODAL DE LOGIN
+    =========================================== -->
+
+    <div class="modal-overlay" id="login-modal">
+
+        <div class="modal-card login-modal-card">
+
+            <button class="modal-close" data-close-modal="login-modal" aria-label="Fechar">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="login-header">
+
+                <img src="Assets/fifa.png" alt="FIFA">
+
+                <span>ÁREA RESTRITA</span>
+
+                <h2>Acesso administrativo</h2>
+
+                <p>Entre com sua conta de administrador para gerenciar os registros.</p>
+
+            </div>
+
+
+            <form id="login-form">
+
+                <div class="form-field">
+
+                    <label for="login-email">E-MAIL</label>
+
+                    <div class="input-icon-wrapper">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+
+                            type="email"
+
+                            id="login-email"
+
+                            placeholder="Seu e-mail"
+
+                            autocomplete="username"
+
+                            required
+
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="login-password">SENHA</label>
+
+                    <div class="input-icon-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+
+                            type="password"
+
+                            id="login-password"
+
+                            placeholder="Sua senha"
+
+                            autocomplete="current-password"
+
+                            required
+
+                        >
+
+                        <button type="button" id="toggle-password" aria-label="Mostrar senha">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-error" id="login-error"></div>
+
+
+                <button type="submit" class="primary-button login-submit-button">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Entrar no painel
+
+                </button>
+
+            </form>
+
+
+            <div class="login-security">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                Acesso protegido. Somente o administrador autorizado pode realizar alterações.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         MODAL DE CONFIRMAÇÃO
+    =========================================== -->
+
+    <div class="modal-overlay" id="confirm-modal">
+
+        <div class="modal-card confirm-modal-card">
+
+            <div class="confirm-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <h2 id="confirm-title">Confirmar exclusão?</h2>
+
+            <p id="confirm-message">
+
+                Tem certeza de que deseja remover este registro?
+
+            </p>
+
+            <div class="confirm-actions">
+
+                <button class="secondary-button" id="confirm-cancel">
+
+                    Cancelar
+
+                </button>
+
+                <button class="danger-button" id="confirm-accept">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Confirmar exclusão
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         NOTIFICAÇÕES
+    =========================================== -->
+
+    <div class="toast-container" id="toast-container">
+
+        <!-- Notificações dinâmicas -->
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Configuração -->
+    <script src="JS/supabase.js"></script>
+
+    <!-- Navegação e funcionalidades -->
+    <script src="JS/script.js"></script>
+
+    <!-- Premiações -->
+    <script src="JS/premiacoes.js"></script>
+
+    <!-- Rankings -->
+    <script src="JS/ranking.js"></script>
+
+    <!-- Campeões -->
+    <script src="JS/campeoes.js"></script>
+
+    <!-- Administração -->
+    <script src="JS/admin.js"></script>
+
+    <!-- Painel -->
+    <script src="JS/painel.js"></script>
+
+    <!-- Filtros -->
+    <script src="JS/filtros.js"></script>
+
+
+</body>
+
+</html>
